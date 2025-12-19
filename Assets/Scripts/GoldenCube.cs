@@ -7,14 +7,8 @@ public class GoldenCube : MonoBehaviour
     
     [SerializeField] private float rotationspeed = 0;
     
-    private AudioSource audioSource;
     [SerializeField] private AudioClip coinSound;
     [SerializeField] public DoorScript doorScript;
-
-    private void Start()
-    {
-        audioSource = this.GetComponent<AudioSource>();
-    }
 
     private void Update()
     {
@@ -25,7 +19,7 @@ public class GoldenCube : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //audioSource.Play();
+            AudioManager.instance.PlaySFX(coinSound);
             doorScript.actualCubes += 1;
             Destroy(this.gameObject);
         }
