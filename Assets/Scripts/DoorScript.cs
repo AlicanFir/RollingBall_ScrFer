@@ -10,16 +10,12 @@ public class DoorScript : MonoBehaviour
     
     private void Update()
     {
-        //Debug.Log(actualCubes);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") && (actualCubes >= cubesToPass))
+        if (actualCubes >= cubesToPass)
         {
             AudioManager.instance.PlaySFX(doorSound);
             this.gameObject.SetActive(false);
             
         }
     }
+
 }
